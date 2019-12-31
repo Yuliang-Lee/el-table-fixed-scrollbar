@@ -94,6 +94,7 @@ export default function install(Vue) {
         const pos = el.getBoundingClientRect()
         const screenHeight = window.innerHeight
         if (pos.bottom > screenHeight && tableWrapper.clientWidth > scrollWrap.clientWidth) {
+          scrollWrap.style.visibility = 'visible'
           scrollWrap.style.top = screenHeight - pos.top - 16 + 'px'
         } else {
           scrollWrap.style.visibility = 'hidden'
