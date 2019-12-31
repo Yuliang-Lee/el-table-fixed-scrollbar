@@ -1,6 +1,6 @@
 {
   "name": "el-table-fixed-scrollbar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Fixed element table bottom scrollbar when table's height is too high",
   "main": "dist/el-table-fixed-scrollbar.min.js",
