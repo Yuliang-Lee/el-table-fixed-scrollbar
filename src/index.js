@@ -85,7 +85,7 @@ export default function install(Vue) {
     },
     componentUpdated(el, binding, vnode) {
       setTimeout(() => {
-        const { startFixed } = binding.value || {}
+        // const { startFixed } = binding.value || {}
         const tableWrapper = el.querySelector('.el-table__body')
         const scrollBody = el.querySelector('.scroll-body')
         const scrollWrap = el.querySelector('.scroll-wrap')
@@ -93,8 +93,10 @@ export default function install(Vue) {
 
         const pos = el.getBoundingClientRect()
         const screenHeight = window.innerHeight
-        if (pos.top - startFixed < 0 && pos.bottom > screenHeight) {
+        if (pos.bottom > screenHeight && tableWrapper.clientWidth > scrollWrap.clientWidth) {
           scrollWrap.style.top = screenHeight - pos.top - 16 + 'px'
+        } else {
+          scrollWrap.style.visibility = 'hidden'
         }
       }, 150)
     },
