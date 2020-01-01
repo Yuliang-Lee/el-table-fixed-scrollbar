@@ -10,6 +10,11 @@
 
 - fixed `el-table` bottom scrollbar when it's height is too high
 
+## dependencies
+
+- [vue@2.x](https://vuejs.org/)
+- [ElementUI@2.x](https://element.eleme.io/)
+
 ## Instalation
 
 ### Using module bundlers
@@ -34,9 +39,9 @@ Vue.use(ElTableFixedScrollbar)
     </div>
   </div>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue2-smooth-scroll"></script>
+  <script src="https://unpkg.com/el-table-fixed-scrollbar"></script>
   <script>
-  Vue.use(ElTableFixedScrollbar);
+  Vue.use(ElTableFixedScrollbar.default);
   var app = new Vue({
     el: '#app',
     data: {
@@ -62,6 +67,12 @@ Vue.use(ElTableFixedScrollbar)
     container: '', // default is window, the scroll container, use document.querySelector to query the Element
   }
 ```
+
+## Demo
+
+[Code](https://codepen.io/Yuliang-Lee/pen/mdyBKXZ)
+
+![fixedBottom](https://user-images.githubusercontent.com/6936358/71640816-6bb20200-2ccc-11ea-84d6-0069ebc9c71b.gif)
 
 ## License
 
