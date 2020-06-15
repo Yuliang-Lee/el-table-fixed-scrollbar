@@ -6,10 +6,6 @@
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/Yuliang-Lee/vue2-smooth-scroll/blob/master/LICENSE)
 
 
-## Features
-
-- fixed `el-table` bottom scrollbar when it's height is too high
-
 ## dependencies
 
 - [vue@2.x](https://vuejs.org/)

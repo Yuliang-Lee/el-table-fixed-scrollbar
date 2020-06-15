@@ -105,7 +105,7 @@ export default function install(Vue) {
       const { windowScroll, bodyScroll, windowResizeHandler, scrollWrap, container } = el[ElementTableCtx]
       scrollWrap.removeEventListener('scroll', bodyScroll)
       container.removeEventListener('scroll', windowScroll)
-      container.removeEventListener('resize', windowResizeHandler)
+      window.removeEventListener('resize', windowResizeHandler)
       el[ElementTableCtx] = null
     }
   })
