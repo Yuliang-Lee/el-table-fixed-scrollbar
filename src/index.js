@@ -49,9 +49,13 @@ export default function install(Vue) {
       }
 
       const bodyScroll = function bodyScroll() {
+        scrollWrap.scrollLeft = bodyWrapper.scrollLeft
+      }
+      const scrollerScroll = function scrollerScroll() {
         bodyWrapper.scrollLeft = this.scrollLeft
       }
-      scrollWrap.addEventListener('scroll', bodyScroll)
+      scrollWrap.addEventListener('scroll', scrollerScroll)
+      bodyWrapper.addEventListener('scroll', bodyScroll)
 
       const windowScroll = () => {
         const pos = el.getBoundingClientRect()
@@ -77,8 +81,10 @@ export default function install(Vue) {
 
       el[ElementTableCtx] = {
         scrollWrap,
+        bodyWrapper,
         container,
         bodyScroll,
+        scrollerScroll,
         windowScroll,
         windowResizeHandler
       }
@@ -94,16 +100,17 @@ export default function install(Vue) {
         const pos = el.getBoundingClientRect()
         const screenHeight = window.innerHeight
         if (pos.bottom > screenHeight && tableWrapper.clientWidth > scrollWrap.clientWidth) {
-          scrollWrap.style.visibility = 'visible'
+          // scrollWrap.style.visibility = 'visible'
           scrollWrap.style.top = screenHeight - pos.top - 16 + 'px'
         } else {
-          scrollWrap.style.visibility = 'hidden'
+          // scrollWrap.style.visibility = 'hidden'
         }
       }, 150)
     },
     unbind(el) {
-      const { windowScroll, bodyScroll, windowResizeHandler, scrollWrap, container } = el[ElementTableCtx]
-      scrollWrap.removeEventListener('scroll', bodyScroll)
+      const { windowScroll, scrollerScroll, bodyScroll, windowResizeHandler, scrollWrap, bodyWrapper, container } = el[ElementTableCtx]
+      scrollWrap.removeEventListener('scroll', scrollerScroll)
+      bodyWrapper.removeEventListener('scroll', bodyScroll)
       container.removeEventListener('scroll', windowScroll)
       window.removeEventListener('resize', windowResizeHandler)
       el[ElementTableCtx] = null
